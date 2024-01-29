@@ -1,2 +1,1 @@
-import './client'
-import './events'
+console.log('Hello World!')

@@ -1,1 +1,0 @@
-:wave: Hi! Choose a thread below in the language you are comfortable reading a brief description of the guild

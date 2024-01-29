@@ -1,10 +1,8 @@
-# Main Discord Bot
+# Ratin manger Discord Bots
 
 ## About
 
-This is the main Discord bot for the server. It handles events that happen in the server. It also handles the slash commands.
-
-We use [Discord.js](https://discord.js.org/#/) to handle Discord events. (message, guildMemberAdd, etc.) See the [Events documentation](https://discord.js.org/docs/packages/discord.js/main/Client:Class#applicationCommandPermissionsUpdate) for more information.
+This is the rating manager Discord bots for the ANIname server. It is update user roles for top 25 users in the server.
 
 ## Installation
 
