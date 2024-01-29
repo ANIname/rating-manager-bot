@@ -1,0 +1,43 @@
+name: Deploy to prod environment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          username: 'root'
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: 22
+          script: |
+            export DISCORD_BOT_TOKEN="${{ secrets.DISCORD_BOT_TOKEN }}"
+            export OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}"
+            export POSTGRES_HOST="${{ secrets.POSTGRES_HOST }}"
+            export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
+            export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
+            export POSTGRES_DATABASE="${{ secrets.POSTGRES_DATABASE }}"
+
+            cd main-discord-bot
+            git pull
+            npm install
+            rm -rf dist
+            npx tsc
+            cp -R static dist
+            npx pm2 reload ecosystem.config.js --update-env || npx pm2 start ecosystem.config.js
