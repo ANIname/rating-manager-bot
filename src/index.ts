@@ -1,1 +1,2 @@
-console.log('Hello World!')
+import './clients'
+import '../utils/discord/manage-members-rating'
