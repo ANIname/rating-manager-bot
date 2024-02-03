@@ -1,5 +1,6 @@
 import processJobsQueue from './process-jobs-queue'
 
+import { setTimeout as delay } from 'timers/promises'
 import { getUsersRating } from '../../../services/knex/base-queries/user'
 import { freeClients, freeClient } from '../../../src/clients'
 import { currentRoleData, newRoleData } from './role-data'
@@ -16,9 +17,9 @@ export default async function prepareJobsQueue() {
   
   while (true) {
     if (!roles.length) {
-      setTimeout(prepareJobsQueue, 1000)
+      await delay(1000)
 
-      break
+      continue
     }
 
     if (queue.length) {
@@ -28,9 +29,9 @@ export default async function prepareJobsQueue() {
     }
 
     if (!freeClients().length) {
-      setTimeout(prepareJobsQueue, 1000)
+      await delay(1000)
 
-      break
+      continue
     }
 
     console.timeLog('Prepare jobs for queue')
@@ -39,9 +40,7 @@ export default async function prepareJobsQueue() {
 
     prepareRoleUpdateJobs(usersRating)
 
-    setTimeout(prepareJobsQueue, 1000)
-
-    break
+    await delay(1000)
   }
 
   console.timeEnd('Prepare jobs for queue')
