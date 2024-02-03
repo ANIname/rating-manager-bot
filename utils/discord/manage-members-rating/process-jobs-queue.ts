@@ -20,7 +20,7 @@ export default async function processJobsQueue() {
 
     console.timeEnd('Process jobs from queue')
 
-    setTimeout(prepareJobsQueue, 1)
+    setTimeout(prepareJobsQueue, 1000)
 
     break
   }

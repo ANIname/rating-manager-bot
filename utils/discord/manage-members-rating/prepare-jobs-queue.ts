@@ -23,7 +23,7 @@ export default async function prepareJobsQueue() {
     }
 
     if (queue.length) {
-      setTimeout(processJobsQueue, 1)
+      setTimeout(processJobsQueue, 1000)
 
       break
     }
