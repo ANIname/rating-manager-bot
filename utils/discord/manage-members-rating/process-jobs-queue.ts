@@ -16,7 +16,7 @@ export default async function processJobsQueue() {
     freeUpClients()
     shuffleClients()
 
-    updateRoles()
+    await updateRoles()
 
     console.timeEnd('Process jobs from queue')
 
