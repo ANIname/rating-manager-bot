@@ -1,5 +1,5 @@
 {
-  "name": "main-discord-bot",
+  "name": "rating-manager-bot",
   "version": "1.0.0",
   "description": "Backend for Discord bot for our discord guild: https://discord.gg/ADFYZtJ",
   "keywords": [
@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ANIname/main-discord-bot.git"
+    "url": "git+https://github.com/ANIname/rating-manager-bot.git"
   },
   "engines": {
     "node": ">=20.9.0"
@@ -17,9 +17,9 @@
   "author": "KiiDii <kiidii@aniname.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ANIname/main-discord-bot/issues"
+    "url": "https://github.com/ANIname/rating-manager-bot/issues"
   },
-  "homepage": "https://github.com/ANIname/main-discord-bot#readme",
+  "homepage": "https://github.com/ANIname/rating-manager-bot#readme",
   "devDependencies": {
     "@types/bluebird": "^3.5.42",
     "@types/chroma-js": "^2.4.3",

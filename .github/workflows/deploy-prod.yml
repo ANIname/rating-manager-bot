@@ -27,14 +27,38 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           script: |
-            export DISCORD_BOT_TOKEN="${{ secrets.DISCORD_BOT_TOKEN }}"
-            export OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}"
+            export BOT_1="${{ secrets.BOT_1 }}"
+            export BOT_2="${{ secrets.BOT_2 }}"
+            export BOT_3="${{ secrets.BOT_3 }}"
+            export BOT_4="${{ secrets.BOT_4 }}"
+            export BOT_5="${{ secrets.BOT_5 }}"
+            export BOT_6="${{ secrets.BOT_6 }}"
+            export BOT_7="${{ secrets.BOT_7 }}"
+            export BOT_8="${{ secrets.BOT_8 }}"
+            export BOT_9="${{ secrets.BOT_9 }}"
+            export BOT_10="${{ secrets.BOT_10 }}"
+            export BOT_11="${{ secrets.BOT_11 }}"
+            export BOT_12="${{ secrets.BOT_12 }}"
+            export BOT_13="${{ secrets.BOT_13 }}"
+            export BOT_14="${{ secrets.BOT_14 }}"
+            export BOT_15="${{ secrets.BOT_15 }}"
+            export BOT_16="${{ secrets.BOT_16 }}"
+            export BOT_17="${{ secrets.BOT_17 }}"
+            export BOT_18="${{ secrets.BOT_18 }}"
+            export BOT_19="${{ secrets.BOT_19 }}"
+            export BOT_20="${{ secrets.BOT_20 }}"
+            export BOT_21="${{ secrets.BOT_21 }}"
+            export BOT_22="${{ secrets.BOT_22 }}"
+            export BOT_23="${{ secrets.BOT_23 }}"
+            export BOT_24="${{ secrets.BOT_24 }}"
+            export BOT_25="${{ secrets.BOT_25 }}"
+
             export POSTGRES_HOST="${{ secrets.POSTGRES_HOST }}"
             export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
             export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
             export POSTGRES_DATABASE="${{ secrets.POSTGRES_DATABASE }}"
 
-            cd main-discord-bot
+            cd rating-manager-bot
             git pull
             npm install
             rm -rf dist

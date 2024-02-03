@@ -33,7 +33,7 @@ const {
 
 module.exports = {
   apps: [{
-    name: 'main-discord-bot',
+    name: 'rating-manager-bot',
     script: 'dist/src/index.js',
     restart_delay: 1000 * 60 * 1, // Every 1 minutes
     env: {
