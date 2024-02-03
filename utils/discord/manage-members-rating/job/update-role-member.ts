@@ -11,7 +11,7 @@ import { CurrentRoleData, NewRoleData } from '../types'
 export default function updateRoleMemberJob(client: Bot, currentRole: CurrentRoleData, newRole: NewRoleData) {
   client.isFree = false
 
-  const jobName  = `update-role-member-${currentRole.id}`
+  const jobName  = `update-role-member-role-${currentRole.id}-from-${currentRole.members[0]?.id}-to-${newRole.memberId}`
   const jobIndex = queue.findIndex((job) => job.name === jobName)
 
   if (jobIndex !== -1) return
@@ -44,6 +44,8 @@ async function updateRoleMember(client: Bot, currentRole: CurrentRoleData, newMe
   }
 
   const promises = []
+
+  if (oldMember?.id === newMember?.id) return role
 
   if (oldMember) promises.push(oldMember.roles.remove(role))
   if (newMember) promises.push(newMember.roles.add(role))

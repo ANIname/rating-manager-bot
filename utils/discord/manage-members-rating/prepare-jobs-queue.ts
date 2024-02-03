@@ -12,9 +12,9 @@ import removeRoleNotAssignedMembersJob from './job/remove-role-not-assigned-memb
 import updateRoleMember from './job/update-role-member'
 
 export default async function prepareJobsQueue() {
+  console.time('Prepare jobs for queue')
+  
   while (true) {
-    console.log('loop', 1)
-
     if (!roles.length) {
       setTimeout(prepareJobsQueue, 1000)
 
@@ -22,7 +22,7 @@ export default async function prepareJobsQueue() {
     }
 
     if (queue.length) {
-      setTimeout(processJobsQueue, 1000)
+      setTimeout(processJobsQueue, 1)
 
       break
     }
@@ -33,6 +33,8 @@ export default async function prepareJobsQueue() {
       break
     }
 
+    console.timeLog('Prepare jobs for queue')
+
     const usersRating = await getUsersRating(100)
 
     prepareRoleUpdateJobs(usersRating)
@@ -41,6 +43,8 @@ export default async function prepareJobsQueue() {
 
     break
   }
+
+  console.timeEnd('Prepare jobs for queue')
 }
 
 function prepareRoleUpdateJobs (usersRating: UserRating[]) {

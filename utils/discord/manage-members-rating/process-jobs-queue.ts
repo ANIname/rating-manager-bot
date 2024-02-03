@@ -6,14 +6,19 @@ import prepareJobsQueue from "./prepare-jobs-queue"
 
 export default async function processJobsQueue() {
   while (true) {
-    console.log('loop', 2)
+    console.time('Process jobs from queue')
 
-    const updatedRoles = await Promise.all(queue.map((job) => job.execute()))
+    console.timeLog('Process jobs from queue', 'Queue:', queue.map((job) => job.name))
+
+    await Promise.all(queue.map((job) => job.execute()))
 
     cleanQueue()
     freeUpClients()
     shuffleClients()
-    updateRoles(updatedRoles)
+
+    updateRoles()
+
+    console.timeEnd('Process jobs from queue')
 
     setTimeout(prepareJobsQueue, 1)
 

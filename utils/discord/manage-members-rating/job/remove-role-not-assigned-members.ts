@@ -13,7 +13,7 @@ import { CurrentRoleData, NewRoleData } from '../types'
 export default function removeRoleNotAssignedMembers(client: Bot, currentRole: CurrentRoleData, newRole: NewRoleData) {
   client.isFree = false
 
-  const jobName  = `remove-role-not-assigned-members-${currentRole.id}`
+  const jobName  = `remove-role-not-assigned-members-${currentRole.id}-except-${newRole.memberId}`
   const jobIndex = queue.findIndex((job) => job.name === jobName)
 
   if (jobIndex !== -1) return
