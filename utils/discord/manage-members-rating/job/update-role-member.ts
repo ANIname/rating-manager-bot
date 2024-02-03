@@ -43,14 +43,10 @@ async function updateRoleMember(client: Bot, currentRole: CurrentRoleData, newMe
     }
   }
 
-  const promises = []
-
   if (oldMember?.id === newMember?.id) return role
 
-  if (oldMember) promises.push(oldMember.roles.remove(role))
-  if (newMember) promises.push(newMember.roles.add(role))
-
-  await Promise.all(promises)
+  if (oldMember) await oldMember.roles.remove(role)
+  if (newMember) await newMember.roles.add(role)
 
   return role
 }
