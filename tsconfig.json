@@ -36,5 +36,5 @@
     "forceConsistentCasingInFileNames": true
   },
 
-  "exclude": ["node_modules", "dist", "**/*.js", "**/*.mjs"],
+  "exclude": ["node_modules/*", "dist", "**/*.js", "**/*.mjs"],
 }
