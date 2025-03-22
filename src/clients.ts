@@ -9,6 +9,8 @@ import Promise from 'bluebird'
 
 import prepareEventsForClient from './events'
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
+
 export class Bot extends Client {
   isFree: boolean;
 
