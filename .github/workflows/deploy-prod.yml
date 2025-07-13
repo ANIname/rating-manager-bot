@@ -58,9 +58,23 @@ jobs:
             export POSTGRES_PASSWORD="${{ secrets.POSTGRESQL_PASSWORD }}"
             export POSTGRES_DATABASE="${{ secrets.POSTGRESQL_DATABASE }}"
 
-            cd rating-manager-bot
+            if [ ! -d "rating-manager-bot" ]; then
+              echo "🔍 Rating manager bot not found, cloning..."
+              git clone https://github.com/ANIname/rating-manager-bot.git
+            fi
+
+            echo "⬇️ Pulling rating manager bot..."
+            cd rating-manager-bot || exit 1
             git pull
-            npm install --legacy-peer-deps
+
+            echo "📦 Installing dependencies..."
+            npm install
+
+            echo "🏗️ Building..."
             rm -rf dist
             npx tsc
+
+            echo "🔄 Restarting/Starting PM2..."
             npx pm2 reload ecosystem.config.js --update-env || npx pm2 start ecosystem.config.js
+
+            echo "✅ Deployed successfully!"
