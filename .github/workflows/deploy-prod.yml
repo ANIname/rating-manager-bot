@@ -53,10 +53,10 @@ jobs:
             export BOT_24="${{ secrets.BOT_24 }}"
             export BOT_25="${{ secrets.BOT_25 }}"
 
-            export POSTGRES_HOST="${{ secrets.POSTGRES_HOST }}"
-            export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
-            export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
-            export POSTGRES_DATABASE="${{ secrets.POSTGRES_DATABASE }}"
+            export POSTGRES_HOST="${{ secrets.SERVER_HOST }}"
+            export POSTGRES_USER="${{ secrets.POSTGRESQL_USERNAME }}"
+            export POSTGRES_PASSWORD="${{ secrets.POSTGRESQL_PASSWORD }}"
+            export POSTGRES_DATABASE="${{ secrets.POSTGRESQL_DATABASE }}"
 
             cd rating-manager-bot
             git pull
